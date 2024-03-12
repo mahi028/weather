@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="shortcut icon" href="/img/favicon.jpg" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="/MDB5/css/mdb.min.css" />
+    
+</head>
+<body>
+    <section class="vh-100" style="background-color: #ded8d8;">
+        <div class="container py-5 h-100 ">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-8 col-lg-6 col-xl-4">
+      
+              <div class="card shadow-4" style="border-radius: 10px;">
+                <div class="bg-image ripple" data-mdb-ripple-color="light"
+                  style="border-top-left-radius: 10px; border-top-right-radius: 10px;">
+                  <img src="{{background_image}}"
+                    class="w-100" />
+                  <div class="mask" style="background-color: rgba(0, 0, 0, 0.08)">
+                    <div class="d-flex justify-content-between p-4">
+                      <a href="#" id="location" class="text-white" onclick="get_location()"><i class="fa-solid fa-location-dot fa-lg pe-2"></i></a>
+                    </div>
+                    <div class="text-center text-white">
+                      <p class="h3 mt-5">{{data['currentConditions']['icon']}}</p>
+                      <p class="display-2"><strong>{{data['currentConditions']['temp']}}&deg;C</strong> </p>
+                      <p class="h5">Max: {{data['days'][0]['tempmax']}}, Min: {{data['days'][0]['tempmin']}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body p-4 text-center">
+                  <a href="#!" class="text-body"><i class="fas fa-chevron-up fa-lg mb-4"></i></a>
+                  <div class="d-flex justify-content-between mb-3">
+                    <p class="h5 fw-normal">Sunrise</p>
+                    <p class="h5 fw-normal"><i class="fas fa-sun pe-2"></i>{{data['days'][0]['sunrise']}}</p>
+                  </div>
+                  <div class="d-flex justify-content-between mb-3" style="color: #aaaaaa;">
+                    <p class="h5 fw-normal">Sunset</p>
+                    <p class="h5 fw-normal"><i class="fas fa-cloud pe-2"></i>{{data['days'][0]['sunset']}}</p>
+                  </div>
+                  <div class="d-flex justify-content-between" style="color: #aaa;">
+                    <p class="h5 fw-normal">AQI <a href="https://ecmwf-projects.github.io/copernicus-training-cams/proc-aq-index.html" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i></a></p>
+                    <p class="h5 fw-normal" style="color: {{icon_color}};">{{data['currentConditions']['aqieur']}}: {{aqi_condition}}</p>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MDB -->
+    <script type="text/javascript" src="/MDB5/js/mdb.umd.min.js"></script>
+<script src="/location.js"></script>
+</body>
+</html>
