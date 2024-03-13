@@ -40,7 +40,7 @@ def get_location(latitude, longitude):
                             icon_color = icon_colors[data['currentConditions']['aqieur']][0],
                             aqi_condition = icon_colors[data['currentConditions']['aqieur']][1])
 
-
+#DRIVER CODE
 #IF RUNNIG ON A LOCAL MACHINE, UN-COMMENT THE NEXT TWO LINES. OTHERWSISE, LEAVE THEM AS IS.
 # if __name__ == '__main__':
 #     app.run(debug = False)
