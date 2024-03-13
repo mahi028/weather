@@ -27,7 +27,7 @@ def get_location(latitude, longitude):
     data = wether_data(coordinate = coordinates,current_date = current_date, current_time = current_time)
 
     background_image = '/img/'+data['currentConditions']['icon']+'.jpg'
-
+    print(icon_colors[data['currentConditions']['aqieur']][0])
     return render_template('index.html',
                             data = data,
                             background_image = background_image,
