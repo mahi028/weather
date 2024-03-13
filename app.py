@@ -4,11 +4,6 @@ from application.models import *
 from application.api_data import wether_data
 import datetime
 
-
-d = str(datetime.datetime.now()).split(' ')
-current_date = d[0]
-current_time = d[1].split('.')[0]
-
 app = Flask(__name__, 
             static_url_path='', 
             static_folder='static',)
@@ -28,6 +23,11 @@ def get_location(latitude, longitude):
     
     if latitude == 'None' or longitude == 'None':
         return '<h1>Your Browser does not support geolocation</h1>'
+    
+    d = str(datetime.datetime.now()).split(' ')
+    current_date = d[0]
+    current_time = d[1].split('.')[0]
+
     coordinates = [latitude,longitude]
     icon_colors = {1:['green','Very Good'], 2: ['light-green', 'Good'], 3: ['yellow', 'Medium'], 4: ['orange','Poor'], 5: ['red', 'Very Poor'], 6:['red', 'Extreamly Poor']}
     data = wether_data(key = key, coordinate = coordinates,current_date = current_date, current_time = current_time)
