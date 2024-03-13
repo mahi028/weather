@@ -34,14 +34,14 @@ def get_location(latitude, longitude):
 
     background_image = '/img/'+data['currentConditions']['icon']+'.jpg'
 
-    if data['currentConditions']['aqieur']:
+    if data['currentConditions']['aqieur'] == None:
         return render_template('index.html',
                                 data = data,
                                 background_image = background_image,
                                 icon_color = icon_colors[data['currentConditions']['aqieur']][0],
                                 aqi_condition = icon_colors[data['currentConditions']['aqieur']][1])
     else:
-        return "<h1>There is a error in retriving weather condition, Please try again</h1>"
+        return "<h1 style='text-align:center;'>There is a error in retriving weather condition, Please try again</h1>"
 
 #DRIVER CODE
 #IF RUNNIG ON A LOCAL MACHINE, UN-COMMENT THE NEXT TWO LINES. OTHERWSISE, LEAVE THEM AS IS.
