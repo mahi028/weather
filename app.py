@@ -31,14 +31,17 @@ def get_location(latitude, longitude):
     coordinates = [latitude,longitude]
     icon_colors = {1:['green','Very Good'], 2: ['light-green', 'Good'], 3: ['yellow', 'Medium'], 4: ['orange','Poor'], 5: ['red', 'Very Poor'], 6:['red', 'Extreamly Poor']}
     data = wether_data(key = key, coordinate = coordinates,current_date = current_date, current_time = current_time)
-    # return data
+
     background_image = '/img/'+data['currentConditions']['icon']+'.jpg'
-    # print(background_image)
-    return render_template('index.html',
-                            data = data,
-                            background_image = background_image,
-                            icon_color = icon_colors[data['currentConditions']['aqieur']][0],
-                            aqi_condition = icon_colors[data['currentConditions']['aqieur']][1])
+
+    if data['currentConditions']['aqieur']:
+        return render_template('index.html',
+                                data = data,
+                                background_image = background_image,
+                                icon_color = icon_colors[data['currentConditions']['aqieur']][0],
+                                aqi_condition = icon_colors[data['currentConditions']['aqieur']][1])
+    else:
+        return "<h1>There is a error in retriving weather condition, Please try again</h1>"
 
 #DRIVER CODE
 #IF RUNNIG ON A LOCAL MACHINE, UN-COMMENT THE NEXT TWO LINES. OTHERWSISE, LEAVE THEM AS IS.
