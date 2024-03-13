@@ -36,5 +36,5 @@ def get_location(latitude, longitude):
 
 #DRIVER CODE
 #IF RUNNIG ON A LOCAL MACHINE, UN-COMMENT THE NEXT TWO LINES. OTHERWSISE, LEAVE THEM AS IS.
-if __name__ == '__main__':
-    app.run(debug = False)
+# if __name__ == '__main__':
+#     app.run(debug = False)
