@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Roboto Mono", monospace;
+}
+div{
+    border: 2px solid black;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.card{
+    height: 500px;
+    width: 350px;
+}
+
+.weather{
+    height: 60%;
+    background-size: 250px 250px;
+
+}
+.details{
+    height: 40%;
+}
+
+.current_temprature{
+    font-size: 50px;
+    color: white;
+    position: relative;
+    top: 50%;
+    margin: 5px 5px;
+    left: 5px;
+}
+.extraTempDetails{
+    position: relative;
+    top: 60%;
+    left: 5px;
+}
+.min_temprature,.max_temprature{
+    margin: 5px 5px;
+    
+}
+
+@media screen and (max-width: 360px) {
+    .card{
+        width: 90vw;
+    }
+}
